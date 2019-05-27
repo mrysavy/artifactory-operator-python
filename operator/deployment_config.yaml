@@ -1,0 +1,22 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: artifactory-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: artifactory-operator
+  template:
+    metadata:
+      labels:
+        name: artifactory-operator
+    spec:
+      serviceAccountName: artifactory-operator
+      containers:
+        - name: operator
+          # Replace this with the built image name
+          image: "<<<OPERATOR_IMAGE>>>"
+          imagePullPolicy: "<<<PULL_POLICY>>>"
+          volumeMounts:
+

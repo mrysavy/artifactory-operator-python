@@ -1,0 +1,22 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: artifactory-operator
+spec:
+  source:
+    git:
+      ref: master
+      uri: https://github.com/mrysavy/artifactory-operator.git
+    type: Git
+  output:
+    to:
+      kind: ImageStreamTag
+      name: artifactory-operator:latest
+  strategy:
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: 'docker.io/michalr/python-37-fedora29'
+    type: Source
+  successfulBuildsHistoryLimit: 1
+  failedBuildsHistoryLimit: 1

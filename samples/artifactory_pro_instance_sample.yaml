@@ -1,0 +1,7 @@
+apiVersion: artifactory.operator.k8s.trask.cz/v1
+kind: ArtifactoryProInstance
+metadata:
+  name: artifactory-pro
+spec:
+  admin_password: password
+  artifactory_lic: ABCDE
